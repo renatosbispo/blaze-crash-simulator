@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Collect crash points data from blaze.com's Crash game, define betting strategies and simulate their outcomes.",
   "main": "index.js",
+  "bin": {
+    "bcsim": "./index.js"
+  },
   "repository": "renatosbispo/blaze-crash-simulator",
   "author": {
     "name": "Renato Bispo",
