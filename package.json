@@ -19,5 +19,6 @@
   "dependencies": {
     "inquirer": "^8.2.0",
     "puppeteer": "^13.0.1"
-  }
+  },
+  "type": "module"
 }
