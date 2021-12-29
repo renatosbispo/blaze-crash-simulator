@@ -1,18 +1,21 @@
 #!/usr/bin/env node
 
-import fs from 'fs';
-import { PROGRAM_DATA_DIRECTORY_PATH } from './lib/filesystem.js';
+import {
+  PROGRAM_DATA_DIRECTORY_PATH,
+  programDataDirectoryExists,
+  createProgramDataDirectory,
+} from './lib/filesystem.js';
 import printError from './lib/error-handling.js';
 
-
 function start() {
-  if (!fs.existsSync(PROGRAM_DATA_DIRECTORY_PATH)) {
+  if (!programDataDirectoryExists()) {
     console.log('Program data directory not found.');
     console.log(`Creating it at ${PROGRAM_DATA_DIRECTORY_PATH}...`);
 
     try {
-      fs.mkdirSync(PROGRAM_DATA_DIRECTORY_PATH);
-      console.log('Successfully created program data directory.');
+      createProgramDataDirectory();
+
+      console.log('Program data directory successfully created.');
     } catch (error) {
       printError(error);
 
