@@ -11,7 +11,7 @@ function start() {
     console.log(`Creating it at ${PROGRAM_DATA_DIRECTORY_PATH}...`);
 
     try {
-      fs.mkdirSync(PROGRAM_DATA_DIRECTORY_PATH, 'utf8');
+      fs.mkdirSync(PROGRAM_DATA_DIRECTORY_PATH);
       console.log('Successfully created program data directory.');
     } catch (error) {
       printError(error);
