@@ -23,8 +23,6 @@ function start() {
       return;
     }
   }
-
-  collectCrashPointsHistorySample();
 }
 
 start();
