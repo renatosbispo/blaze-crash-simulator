@@ -6,6 +6,7 @@ import {
   createProgramDataDirectory,
 } from './lib/filesystem.js';
 import printError from './lib/error-handling.js';
+import collectCrashPointsHistorySample from './lib/crash-points-history-sample-collection.js';
 
 function start() {
   if (!programDataDirectoryExists()) {
@@ -22,6 +23,8 @@ function start() {
       return;
     }
   }
+
+  collectCrashPointsHistorySample();
 }
 
 start();
