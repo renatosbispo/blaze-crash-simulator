@@ -6,6 +6,7 @@ import {
   createProgramDataDirectory,
 } from './lib/filesystem.js';
 import printError from './lib/error-handling.js';
+import createCrashPointsHistorySample from './lib/crash-points-history-sample-collection.js';
 
 async function start() {
   if (!programDataDirectoryExists()) {
@@ -22,6 +23,8 @@ async function start() {
       return;
     }
   }
+
+  console.log(await createCrashPointsHistorySample());
 }
 
 start();
