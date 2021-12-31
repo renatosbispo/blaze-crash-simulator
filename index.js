@@ -6,25 +6,27 @@ import {
   createProgramDataDirectory,
 } from './lib/filesystem.js';
 import printError from './lib/error-handling.js';
-import createCrashPointsHistorySample from './lib/crash-points-history-sample-collection.js';
 
 async function start() {
+  const printSeparator = () => {
+    console.log('---------------------------------------------------');
+  };
+
   if (!programDataDirectoryExists()) {
-    console.log('Program data directory not found.');
-    console.log(`Creating it at ${PROGRAM_DATA_DIRECTORY_PATH}...`);
+    console.log('> [BCSim] Program data directory not found.');
+    console.log(`> [BCSim] Creating it at ${PROGRAM_DATA_DIRECTORY_PATH}...`);
 
     try {
       createProgramDataDirectory();
 
-      console.log('Program data directory successfully created.');
+      console.log('> [BCSim] Program data directory successfully created.');
+      printSeparator();
     } catch (error) {
       printError(error);
 
       return;
     }
   }
-
-  console.log(await createCrashPointsHistorySample());
 }
 
 start();
