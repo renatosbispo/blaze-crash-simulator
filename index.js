@@ -8,8 +8,10 @@ import {
   programDataExists,
   saveProgramData,
 } from './lib/filesystem.js';
-import printProgramMessage, { printSeparator } from './lib/console-output.js';
-import printError from './lib/error-handling.js';
+import printProgramMessage, {
+  printSeparator,
+  printError,
+} from './lib/console-output.js';
 import createCrashPointsHistorySample from './lib/crash-points-history-sample-collection.js';
 
 async function start() {
