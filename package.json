@@ -18,7 +18,8 @@
   "homepage": "https://github.com/renatosbispo/blaze-crash-simulator#readme",
   "dependencies": {
     "inquirer": "^8.2.0",
-    "puppeteer": "^13.0.1"
+    "puppeteer": "^13.0.1",
+    "uuid": "^8.3.2"
   },
   "type": "module"
 }
