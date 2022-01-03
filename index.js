@@ -5,7 +5,7 @@ import {
   CRASH_POINTS_HISTORY_SAMPLES_FILE_PATH,
   programDataDirectoryExists,
   createProgramDataDirectory,
-  programDataExists,
+  programFileExists,
   saveProgramData,
 } from './lib/filesystem.js';
 import printProgramMessage, {
@@ -31,7 +31,7 @@ async function start() {
     }
   }
 
-  if (!programDataExists(CRASH_POINTS_HISTORY_SAMPLES_FILE_PATH)) {
+  if (!programFileExists(CRASH_POINTS_HISTORY_SAMPLES_FILE_PATH)) {
     printProgramMessage('No crash points history samples were found.');
     printProgramMessage('Creating new sample...');
 
