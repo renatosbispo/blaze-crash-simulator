@@ -13,29 +13,7 @@ import printProgramMessage, {
   printError,
 } from './lib/console-output.js';
 import createCrashPointsHistorySample from './lib/crash-points-history-sample-collection.js';
-import simulateStrategy from './lib/betting-strategy-simulation.js';
-
-function shouldEnterRound() {
-  return entrySignals.some((entrySignal) => {
-    if (crashPointsSequence.length < entrySignal.length) {
-      return false;
-    }
-
-    const crashPointsSequenceEndingSection = crashPointsSequence.slice(
-      crashPointsSequence.length - entrySignal.length
-    );
-
-    const crashPointsSequenceEndingSectionConvertedValues =
-      crashPointsSequenceEndingSection.map(({ isGood }) =>
-        isGood ? 1 : 0
-      );
-
-    return (
-      JSON.stringify(crashPointsSequenceEndingSectionConvertedValues) ===
-      JSON.stringify(entrySignal)
-    );
-  });
-}
+// import simulateStrategy from './lib/betting-strategy-simulation.js';
 
 async function start() {
   if (!programDataDirectoryExists()) {
@@ -79,7 +57,7 @@ async function start() {
     }
   }
 
-  simulateStrategy();
+  // simulateStrategy();
 }
 
 start();
