@@ -7,13 +7,16 @@ import {
   createProgramDataDirectory,
   programFileExists,
   saveProgramData,
+  loadProgramData,
 } from './lib/filesystem.js';
 import printProgramMessage, {
   printSeparator,
   printError,
 } from './lib/console-output.js';
 import createCrashPointsHistorySample from './lib/crash-points-history-sample-collection.js';
-// import simulateStrategy from './lib/betting-strategy-simulation.js';
+import simulateStrategy from './lib/betting-strategy-simulation-alt.js';
+
+const shouldForceSampleCreation = false;
 
 async function start() {
   if (!programDataDirectoryExists()) {
@@ -32,7 +35,10 @@ async function start() {
     }
   }
 
-  if (!programFileExists(CRASH_POINTS_HISTORY_SAMPLES_FILE_PATH)) {
+  if (
+    !programFileExists(CRASH_POINTS_HISTORY_SAMPLES_FILE_PATH) ||
+    shouldForceSampleCreation
+  ) {
     printProgramMessage('No crash points history samples were found.');
     printProgramMessage('Creating new sample...');
 
@@ -43,8 +49,12 @@ async function start() {
       printProgramMessage('Sample was successfully created.');
       printProgramMessage('Saving sample to program data directory...');
 
+      const currentSamples = loadProgramData(
+        CRASH_POINTS_HISTORY_SAMPLES_FILE_PATH
+      );
+
       saveProgramData(
-        [newCrashPointsHistorySample],
+        [...currentSamples, newCrashPointsHistorySample],
         CRASH_POINTS_HISTORY_SAMPLES_FILE_PATH
       );
 
@@ -57,7 +67,7 @@ async function start() {
     }
   }
 
-  // simulateStrategy();
+  simulateStrategy();
 }
 
 start();

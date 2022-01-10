@@ -7,6 +7,10 @@
     "bcsim": "./index.js"
   },
   "repository": "renatosbispo/blaze-crash-simulator",
+  "scripts": {
+    "stats": "node ./lib/stats.js",
+    "test": "jest --"
+  },
   "author": {
     "name": "Renato Bispo",
     "email": "renatoslvbispo@gmail.com"
@@ -18,8 +22,14 @@
   "homepage": "https://github.com/renatosbispo/blaze-crash-simulator#readme",
   "dependencies": {
     "inquirer": "^8.2.0",
+    "lodash": "^4.17.21",
     "puppeteer": "^13.0.1",
+    "simple-statistics": "^7.7.0",
     "uuid": "^8.3.2"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.7",
+    "jest": "^27.4.7"
+  }
 }
