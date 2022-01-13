@@ -9,6 +9,7 @@
   "repository": "renatosbispo/blaze-crash-simulator",
   "scripts": {
     "stats": "node ./lib/stats.js",
+    "strat": "node ./lib/stratgen.js",
     "test": "jest --"
   },
   "author": {
