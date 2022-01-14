@@ -16,7 +16,7 @@ import printProgramMessage, {
 import createCrashPointsHistorySample from './lib/crash-points-history-sample-collection.js';
 import simulateStrategy from './lib/betting-strategy-simulation-alt.js';
 
-const shouldForceSampleCreation = true;
+const shouldForceSampleCreation = false;
 
 async function start() {
   if (!programDataDirectoryExists()) {
